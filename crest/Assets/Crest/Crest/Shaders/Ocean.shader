@@ -523,6 +523,14 @@ Shader "Crest/Ocean"
 					#endif
 				}
 
+#if _SUBSURFACESCATTERING_ON
+				// Extents need the default SSS to avoid popping and not being noticeably different.
+				if (_LD_SliceIndex == (_SliceCount - 1))
+				{
+					sss = 0.5;
+				}
+#endif
+
 				#if _APPLYNORMALMAPPING_ON
 				#if _FLOW_ON
 				ApplyNormalMapsWithFlow(positionXZWSUndisplaced, input.flow_shadow.xy, lodAlpha, cascadeData0, instanceData, n_pixel);
