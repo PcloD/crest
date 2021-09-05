@@ -527,7 +527,7 @@ Shader "Crest/Ocean"
 				// Extents need the default SSS to avoid popping and not being noticeably different.
 				if (_LD_SliceIndex == (_SliceCount - 1))
 				{
-					sss = 0.5;
+					sss = CREST_SSS_MAXIMUM - CREST_SSS_RANGE;
 				}
 #endif
 
